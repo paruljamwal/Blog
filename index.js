@@ -1,6 +1,9 @@
 const express=require("express");
-const mongoose=require("mongoose")
-const app=express()
+const mongoose=require("mongoose");
+const app=express();
+const authRoute=require("./Routes/auth")
+
+app.use(express.json())
 
 const connection=()=>{
     try{
@@ -13,6 +16,7 @@ const connection=()=>{
     }
 }
 
+app.use("/auth",authRoute)
 
 app.listen(5000,async()=>{
     try{
