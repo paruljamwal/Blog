@@ -3,6 +3,9 @@ const mongoose=require("mongoose");
 const app=express();
 const authRoute=require("./Routes/auth")
 const userRoute=require("./Routes/users")
+const postRoute=require("./Routes/post")
+const categoryRoute=require("./Routes/categories") 
+
 app.use(express.json())
 
 const connection=()=>{
@@ -19,6 +22,10 @@ const connection=()=>{
 app.use("/auth",authRoute)
 
 app.use("/users",userRoute)
+
+app.use("/post",postRoute)
+
+app.use("/category",categoryRoute)
 
 app.listen(5000,async()=>{
     try{
